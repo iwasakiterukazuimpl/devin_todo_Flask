@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}ToDo List{% endblock %}
+
+{% block content %}
+    <section class="todo-form">
+        <h2>Add New Task</h2>
+        <form action="{{ url_for('add') }}" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <button type="submit">Add Task</button>
+        </form>
+    </section>
+
+    <section class="todo-list">
+        <h2>Tasks</h2>
+        {% if todos %}
+            <ul>
+                {% for todo in todos %}
+                    <li class="todo-item {% if todo['completed'] %}completed{% endif %}">
+                        <div class="todo-content">
+                            <h3>{{ todo['title'] }}</h3>
+                            <p>{{ todo['description'] }}</p>
+                        </div>
+                        <div class="todo-actions">
+                            <form action="{{ url_for('update', id=todo['id']) }}" method="post">
+                                <input type="hidden" name="title" value="{{ todo['title'] }}">
+                                <input type="hidden" name="description" value="{{ todo['description'] }}">
+                                <input type="checkbox" name="completed" {% if todo['completed'] %}checked{% endif %} onchange="this.form.submit()">
+                                <button type="submit">Update</button>
+                            </form>
+                            <a href="{{ url_for('delete', id=todo['id']) }}" class="delete-btn">Delete</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tasks yet.</p>
+        {% endif %}
+    </section>
+{% endblock %}
