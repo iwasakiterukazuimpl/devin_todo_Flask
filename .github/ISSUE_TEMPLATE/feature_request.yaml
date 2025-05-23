@@ -1,0 +1,29 @@
+name: 機能追加リクエスト（Devin対応）
+description: 新しい機能を追加するリクエスト用テンプレートです。
+title: "[Feature] タイトルを記入してください"
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        なぜこのIssueが必要かを記述してください。
+  - type: textarea
+    id: background
+    attributes:
+      label: 背景（Background）
+      description: このIssueの目的や背景を記述
+  - type: textarea
+    id: requirements
+    attributes:
+      label: 要件（Requirements）
+      description: 実装すべき項目をリストで記述（箇条書きでOK）
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: 成果物（Deliverables）
+      description: このIssueで完成とする条件を記述
+  - type: textarea
+    id: notes
+    attributes:
+      label: 備考（Notes）
+      description: 補足や関連Issueなどがあれば記述
