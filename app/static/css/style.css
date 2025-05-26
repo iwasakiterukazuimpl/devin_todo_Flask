@@ -41,7 +41,7 @@ h1, h2, h3 {
     margin-bottom: 10px;
 }
 
-.todo-form, .todo-list {
+.task-form, .task-list {
     margin-bottom: 30px;
 }
 
@@ -54,7 +54,7 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="date"], textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
@@ -73,45 +73,56 @@ button {
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 4px;
+    margin-right: 5px;
 }
 
 button:hover {
     background: #29353d;
 }
 
-.todo-item {
-    list-style: none;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.todo-item.completed {
+.task-table th, .task-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.task-table tr.completed {
     background-color: #f9f9f9;
     opacity: 0.7;
 }
 
-.todo-item.completed h3 {
+.task-table tr.completed td:first-child {
     text-decoration: line-through;
 }
 
-.todo-content {
-    flex: 1;
-}
-
-.todo-actions {
+.task-actions {
     display: flex;
     align-items: center;
 }
 
-.todo-actions form {
+.task-actions form {
     display: flex;
     align-items: center;
     margin-right: 10px;
+}
+
+.edit-btn {
+    background-color: #3498db;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
 }
 
 .delete-btn {

@@ -1,8 +1,9 @@
-DROP TABLE IF EXISTS todo;
+DROP TABLE IF EXISTS task;
 
-CREATE TABLE todo (
+CREATE TABLE task (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
   description TEXT,
+  deadline DATE,
   completed BOOLEAN NOT NULL DEFAULT 0
 );
