@@ -1,6 +1,12 @@
+# Python キャッシュ
 __pycache__/
-*.pyc
-*.pyo
-*.db
+*.py[cod]
+
+# 仮想環境
 venv/
+
+# SQLite データベース（開発用）
+*.db
+
+# Flask インスタンス設定
 instance/
